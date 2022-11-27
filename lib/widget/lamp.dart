@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 /// Trapezoid
 class Lamp extends StatelessWidget {
   final double screenWidth, screenHeight;
-  final Color color, startColor, endColor;
+  final Color color, gradientColor;
   final bool isSwitchOn;
+  final Duration animatedDuration;
 
   const Lamp({
     Key? key,
@@ -12,8 +13,8 @@ class Lamp extends StatelessWidget {
     required this.screenHeight,
     required this.color,
     required this.isSwitchOn,
-    required this.startColor,
-    required this.endColor,
+    required this.gradientColor,
+    required this.animatedDuration,
   }) : super(key: key);
 
   @override
@@ -30,10 +31,13 @@ class Lamp extends StatelessWidget {
               height: screenHeight * 0.25,
               color: color,
             ),
-            Container(
-              height: screenHeight * 0.75,
-              decoration: BoxDecoration(
-                gradient: isSwitchOn ? LinearGradient(colors: [startColor, endColor], begin: Alignment.topCenter, end: Alignment.bottomCenter) : null,
+            AnimatedContainer(
+              duration: animatedDuration,
+              child: Container(
+                height: screenHeight * 0.75,
+                decoration: BoxDecoration(
+                  gradient: isSwitchOn ? LinearGradient(colors: [gradientColor.withOpacity(0.5), gradientColor.withOpacity(0.1)], begin: Alignment.topCenter, end: Alignment.bottomCenter) : null,
+                ),
               ),
             ),
           ],
@@ -43,6 +47,8 @@ class Lamp extends StatelessWidget {
   }
 }
 
+
+
 ///       ****
 ///      *    *
 ///     *      *
@@ -50,6 +56,7 @@ class Lamp extends StatelessWidget {
 ///   ************
 ///
 ///   TRAPEZOID (lamp widget)
+///   below we are clipping the rectangle column into trapezoid
 
 class TrapezoidClipper extends CustomClipper<Path> {
   @override
