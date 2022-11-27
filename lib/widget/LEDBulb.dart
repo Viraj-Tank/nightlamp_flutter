@@ -22,6 +22,7 @@ class LEDBulb extends StatelessWidget {
       top: screenHeight * 0.35,
       child: AnimatedContainer(
         duration: animatedDuration,
+        curve: Curves.ease,
         child: Container(
           width: 80,
           height: 80,
