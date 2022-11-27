@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:nightlamp_flutter/utils/color_constants.dart';
 import 'package:nightlamp_flutter/widget/lamp_hanger_rope.dart';
 import 'package:nightlamp_flutter/widget/lamp_switch.dart';
+import 'package:nightlamp_flutter/widget/room_name.dart';
 
 import '../widget/LEDBulb.dart';
 import '../widget/lamp.dart';
 import '../widget/lamp_switch_rope.dart';
 
 class LivingHomePage extends StatefulWidget {
-
   const LivingHomePage({Key? key}) : super(key: key);
 
   @override
@@ -43,7 +43,7 @@ class _LivingHomePageState extends State<LivingHomePage> {
           ),
           LampSwitch(
             onTap: () {
-              setState((){
+              setState(() {
                 _isSwitchOn = !_isSwitchOn;
               });
             },
@@ -62,9 +62,14 @@ class _LivingHomePageState extends State<LivingHomePage> {
             isSwitchOn: _isSwitchOn,
             animatedDuration: animationDuration,
           ),
+          RoomName(
+            screenWidth: screenWidth,
+            screenHeight: screenHeight,
+            color: darkGray,
+            roomName: 'LIVING ROOM',
+          )
         ],
       ),
     );
   }
-
 }
