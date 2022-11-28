@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.novuspax.nightlamp_flutter">
    <application
-        android:label="nightlamp_flutter"
+        android:label="Night Lamp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

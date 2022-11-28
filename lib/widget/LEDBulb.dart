@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class LEDBulb extends StatelessWidget {
   final double screenWidth, screenHeight;
   final Color onColor, offColor;
-  final bool isSwitchOn;
-  final Duration animatedDuration = const Duration(seconds: 4000);
+  final bool isLEDOn;
+  final Duration animationDuration = const Duration(milliseconds: 2000);
 
   const LEDBulb({
     Key? key,
@@ -12,7 +12,7 @@ class LEDBulb extends StatelessWidget {
     required this.screenHeight,
     required this.onColor,
     required this.offColor,
-    required this.isSwitchOn,
+    required this.isLEDOn,
   }) : super(key: key);
 
   @override
@@ -21,15 +21,12 @@ class LEDBulb extends StatelessWidget {
       left: screenWidth * 0.1,
       top: screenHeight * 0.35,
       child: AnimatedContainer(
-        duration: animatedDuration,
-        curve: Curves.ease,
-        child: Container(
-          width: 80,
-          height: 80,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: isSwitchOn ? onColor : offColor,
-          ),
+        duration: animationDuration,
+        width: 100,
+        height: 100,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: isLEDOn ? onColor : offColor,
         ),
       ),
     );

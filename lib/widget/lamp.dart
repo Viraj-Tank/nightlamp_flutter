@@ -32,20 +32,17 @@ class Lamp extends StatelessWidget {
               color: color,
             ),
             AnimatedContainer(
-              curve: Curves.ease,
               duration: animatedDuration,
-              child: Container(
-                width: double.infinity,
-                height: screenHeight * 0.75,
-                decoration: BoxDecoration(
-                  gradient: isSwitchOn
-                      ? LinearGradient(
-                          colors: [gradientColor.withOpacity(0.5), gradientColor.withOpacity(0.1)],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        )
-                      : null,
-                ),
+              width: double.infinity,
+              height: screenHeight * 0.75,
+              decoration: BoxDecoration(
+                gradient: isSwitchOn
+                    ? LinearGradient(
+                        colors: [gradientColor.withOpacity(0.5), gradientColor.withOpacity(0.1)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      )
+                    : null,
               ),
             ),
           ],

@@ -31,7 +31,7 @@ class _LivingHomePageState extends State<LivingHomePage> {
             screenHeight: screenHeight,
             onColor: bulbOnColor,
             offColor: bulbOffColor,
-            isSwitchOn: _isSwitchOn,
+            isLEDOn: _isSwitchOn,
           ),
           Lamp(
             screenWidth: screenWidth,
